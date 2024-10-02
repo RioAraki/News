@@ -1,0 +1,6 @@
+requests
+Flask
+python-dotenv
+redis 
+apscheduler
+dash
