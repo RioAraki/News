@@ -4,3 +4,5 @@ python-dotenv
 redis 
 apscheduler
 dash
+beautifulsoup4 
+lxml
