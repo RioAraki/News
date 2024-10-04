@@ -18,7 +18,6 @@ app.layout = dbc.Container([
             dbc.Input(id="test-string-input", type="text", placeholder="Enter a test string here"),
         ], width=6),
     ], className="mt-3"),
-    dbc.Button("Test Regex", id="test-button", color="primary", className="mt-3"),
     html.Hr(),
     html.Div(id="regex-result", className="mt-3"),
 ])
@@ -26,14 +25,10 @@ app.layout = dbc.Container([
 # Define the callback to handle regex testing
 @app.callback(
     Output("regex-result", "children"),
-    Input("test-button", "n_clicks"),
-    State("regex-input", "value"),
-    State("test-string-input", "value")
+    Input("regex-input", "value"),
+    Input("test-string-input", "value")
 )
-def test_regex(n_clicks, regex_pattern, test_string):
-    if not n_clicks:
-        return ""
-
+def test_regex(regex_pattern, test_string):
     if not regex_pattern:
         return dbc.Alert("Please enter a valid regex pattern.", color="warning")
     
